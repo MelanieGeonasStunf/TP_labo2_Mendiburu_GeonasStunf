@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace TP_labo2_Mendiburu_GeonasStunf
 {
-    public partial class Form1 : Form
+    public partial class FormMedio : Form
     {
-        public Form1()
+        public FormMedio()
         {
             InitializeComponent();
-        }
-
-        private void txtB1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

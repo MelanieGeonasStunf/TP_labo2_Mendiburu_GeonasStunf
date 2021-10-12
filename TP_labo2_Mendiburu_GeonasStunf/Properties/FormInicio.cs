@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TP_labo2_Mendiburu_GeonasStunf
+namespace TP_labo2_Mendiburu_GeonasStunf.Properties
 {
-    public partial class Form1 : Form
+    public partial class FormInicio : Form
     {
-        public Form1()
+        public FormInicio()
         {
             InitializeComponent();
-        }
-
-        private void txtB1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

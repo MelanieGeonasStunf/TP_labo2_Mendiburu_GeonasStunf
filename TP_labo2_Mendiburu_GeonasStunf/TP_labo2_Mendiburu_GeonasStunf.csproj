@@ -52,13 +52,43 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormFinal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFinal.Designer.cs">
+      <DependentUpon>FormFinal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMedio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMedio.Designer.cs">
+      <DependentUpon>FormMedio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFinal.resx">
+      <DependentUpon>FormFinal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMedio.resx">
+      <DependentUpon>FormMedio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\FormInicio.resx">
+      <DependentUpon>FormInicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Compile Include="Properties\FormInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Properties\FormInicio.Designer.cs">
+      <DependentUpon>FormInicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
