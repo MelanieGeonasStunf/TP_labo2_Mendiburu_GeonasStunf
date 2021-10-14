@@ -46,6 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Amenazas.cs" />
+    <Compile Include="cJuego.cs" />
+    <Compile Include="cPosicion.cs" />
+    <Compile Include="cTablero.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
