@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace TP_labo2_Mendiburu_GeonasStunf
 {
-    class cJuego
+    class Alfil
     {
-        int cant_tableros;
+        cTablero alfil;
     }
 }

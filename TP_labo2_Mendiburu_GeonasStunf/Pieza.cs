@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace TP_labo2_Mendiburu_GeonasStunf
 {
-    class cJuego
+    class Pieza
     {
-        int cant_tableros;
+        cPosicion pos;
+
     }
 }

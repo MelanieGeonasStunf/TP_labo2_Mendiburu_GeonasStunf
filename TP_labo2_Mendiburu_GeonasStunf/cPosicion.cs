@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace TP_labo2_Mendiburu_GeonasStunf
 {
-    class cPosicion
+    public class cPosicion
     {
         Random r= new Random();
+        
         int fila;
         int columna;
         public void EleccionAlAzar() {

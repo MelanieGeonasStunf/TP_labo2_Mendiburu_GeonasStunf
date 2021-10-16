@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alfil.cs" />
     <Compile Include="Amenazas.cs" />
     <Compile Include="cJuego.cs" />
     <Compile Include="cPosicion.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="FormMedio.Designer.cs">
       <DependentUpon>FormMedio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Pieza.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
