@@ -18,5 +18,21 @@ namespace TP_labo2_Mendiburu_GeonasStunf
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
+        /*
+        Creamos juego
+    
+        pedimos cant tableros por teclado(form)
+        llamamos a inicializar alfiles
+        llamamos a generar tableros
+
+         */
+
     }
 }
+
+//
+/*
+ Constructores para matrices
+-> MATRICES:
+getLenght( num ), num=0 -> fila | num=1-> columna
+ */
