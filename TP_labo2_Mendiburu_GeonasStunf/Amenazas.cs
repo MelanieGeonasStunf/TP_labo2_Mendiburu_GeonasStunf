@@ -10,7 +10,7 @@ namespace TP_labo2_Mendiburu_GeonasStunf
     {
         int casillas_no_amenazadas;
 
-        public Amenazas() { }
+        public Amenazas() { casillas_no_amenazadas = 0; }
         public void AmenazasMovimientoCaballos() { }
         public void AmenazasMovimientoTorre() { }
         public void AmenazasMovimientoAlfil() { }

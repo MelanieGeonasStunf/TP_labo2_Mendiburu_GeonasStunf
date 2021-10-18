@@ -24,6 +24,7 @@ namespace TP_labo2_Mendiburu_GeonasStunf
         pedimos cant tableros por teclado(form)
         llamamos a inicializar alfiles
         llamamos a generar tableros
+        hacer las fichas en una función
 
          */
 

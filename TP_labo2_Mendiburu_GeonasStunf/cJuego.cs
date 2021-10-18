@@ -23,7 +23,7 @@ namespace TP_labo2_Mendiburu_GeonasStunf
             casillas_amenazadas = new Amenazas();
             pos_piezas = new cTablero();
             cant_amenazasxCasillas = new Amenazas();
-            arrayPiezas = new Pieza[8];
+            arrayPiezas = new Pieza[8];//yo recibiria una por parametro
         }
         public void InicializarTableroAlfil() {
             int cont = 0;
