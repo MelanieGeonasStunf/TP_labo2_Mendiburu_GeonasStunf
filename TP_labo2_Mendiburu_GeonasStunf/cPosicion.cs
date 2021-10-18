@@ -10,8 +10,8 @@ namespace TP_labo2_Mendiburu_GeonasStunf
     {
         Random r;
         
-        int fila;
-        int columna;
+        public int fila;
+        public int columna;
         public cPosicion() {
             r = new Random();
             fila = -1;
@@ -21,5 +21,6 @@ namespace TP_labo2_Mendiburu_GeonasStunf
             fila=r.Next(8);
             columna = r.Next(8);
         }
+        
     }
 }
