@@ -5,13 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TP_labo2_Mendiburu_GeonasStunf
-{
+{ 
     public class Amenazas: cTablero//HERENCIA
     {
-        int casillas_no_amenazadas;
+        public int casillas_no_amenazadas;
+        public cPosicion pos_max_amenazas;
+        public int max_amenazas;
+        public Amenazas() { 
+            casillas_no_amenazadas = 0;
+            pos_max_amenazas = new cPosicion();
+            max_amenazas=tablero[0,0];
 
-        public Amenazas() { casillas_no_amenazadas = 0; }
-        public void AmenazasMovimientoCaballos() { }
+        }
+        public void AmenazasMovimientoCaballos(int[,] Amz_x_Cas, int[,] pos_piezas, cPosicion pos, bool sumar) { }
         public void AmenazasMovimientoTorre(int[,] Amz_x_Cas, int[,] pos_piezas, cPosicion pos, bool sumar) {
             for (int i = 0; i < 8; i++)
             {
@@ -39,8 +45,8 @@ namespace TP_labo2_Mendiburu_GeonasStunf
         }
         public void AmenazasMovimientoAlfil(int[,] Amz_x_Cas, int[,] pos_piezas, cPosicion pos, bool sumar) { }
         public void AmenazasMovimientoReina(int[,] Amz_x_Cas, int[,] pos_piezas, cPosicion pos, bool sumar) { }
-        public void AmenazasMovimientoRey() { }
-        public void BuscarYdesamenazar_porPieza() { }
+        public void AmenazasMovimientoRey(int[,] Amz_x_Cas, int[,] pos_piezas, cPosicion pos, bool sumar) { }
+        public void BuscarYdesamenazar_porPieza(int[,] Amz_x_Cas, Pieza pieza, int[,] pos_piezas) { }
 
     }
 }
