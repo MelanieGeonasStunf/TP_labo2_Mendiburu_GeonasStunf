@@ -79,7 +79,6 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                 }
 
                 //busco primer posición vacia ->pongo caballo
-                //va un try
                 try
                 {
                     arrayPiezas[0].pos = pos_piezas.BuscarPosicionLibre();
@@ -89,11 +88,7 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                     Console.WriteLine(ex.Message);
                     // MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                //cPosicion paux = new cPosicion();//creo una posicion nueva que va a estar inicializada en -1
-                //if (arrayPiezas[0].pos == paux)
-                //{
-                //    //throw "NO "
-                //}
+                //cPosicion paux = new cPosicion();//creo una posicion nueva que va a estar inicializada en -
                 pos_piezas.tablero[arrayPiezas[0].pos.fila, arrayPiezas[0].pos.fila] = 2;//caballo
                                                                                          //Lleno matriz con posiciones que amenazan
 
@@ -153,8 +148,10 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                     }
                     //fijarme si esta completo
                 }
-                if (casillas_amenazadas.casillas_no_amenazadas == 0)//si matriz amenazada completa que termine el while
+                if (casillas_amenazadas.casillas_no_amenazadas == 0) {// si matriz amenazada completa que termine el while
+                    pos_piezas.ImprimirTablero();
                     break;//tengo tablero
+                }
 
                 //Si no esta del todo amenazado tengo que empezar a mover piezas hasta tener una solucion
 
@@ -191,8 +188,12 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                             casillas_amenazadas.BuscarYdesamenazar_porPieza(cant_amenazasxCasillas.tablero, arrayPiezas[1], pos_piezas.tablero);
                             casillas_amenazadas.AmenazasMovimientoCaballos(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[1], true);
                         }
-                        if (casillas_amenazadas.casillas_no_amenazadas == 0)//si matriz amenazada completa que termine el while
+                        if (casillas_amenazadas.casillas_no_amenazadas == 0)
+                        {
+                            //si matriz amenazada completa que termine el while
+                            pos_piezas.ImprimirTablero();
                             break;
+                        }
                         //falta vaciar las casillas que se liberan al mover la pieza
                         //una mega funcion que chequee todo
                         if (casillas_amenazadas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] == 4)
@@ -201,8 +202,12 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                             pos_piezas.LiberarPieza(arrayPiezas[2]);
                             casillas_amenazadas.BuscarYdesamenazar_porPieza(cant_amenazasxCasillas.tablero, arrayPiezas[2], pos_piezas.tablero);
                             casillas_amenazadas.AmenazasMovimientoTorre(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[2], true);
-                            if (casillas_amenazadas.casillas_no_amenazadas == 0)//si matriz amenazada completa que termine el while
+                            if (casillas_amenazadas.casillas_no_amenazadas == 0)
+                            {
+                                //si matriz amenazada completa que termine el while
+                                pos_piezas.ImprimirTablero();
                                 break;
+                            }
                         }
                         if (casillas_amenazadas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] == 7)
                         {
@@ -212,8 +217,12 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                                 pos_piezas.LiberarPieza(arrayPiezas[5]);
                                 casillas_amenazadas.BuscarYdesamenazar_porPieza(cant_amenazasxCasillas.tablero, arrayPiezas[5], pos_piezas.tablero);
                                 casillas_amenazadas.AmenazasMovimientoAlfil(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[5], true);
-                                if (casillas_amenazadas.casillas_no_amenazadas == 0)//si matriz amenazada completa que termine el while
+                                if (casillas_amenazadas.casillas_no_amenazadas == 0)
+                                {
+                                    //si matriz amenazada completa que termine el while
+                                    pos_piezas.ImprimirTablero();
                                     break;
+                                }
                             }
                         }
                         else
@@ -222,8 +231,12 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                             pos_piezas.LiberarPieza(arrayPiezas[4]);
                             casillas_amenazadas.BuscarYdesamenazar_porPieza(cant_amenazasxCasillas.tablero, arrayPiezas[4], pos_piezas.tablero);
                             casillas_amenazadas.AmenazasMovimientoAlfil(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[4], true);
-                            if (casillas_amenazadas.casillas_no_amenazadas == 0)//si matriz amenazada completa que termine el while
+                            if (casillas_amenazadas.casillas_no_amenazadas == 0)
+                            {
+                                //si matriz amenazada completa que termine el while
+                                pos_piezas.ImprimirTablero();
                                 break;
+                            }
                         }
                         //falta vaciar las casillas que se liberan al mover la pieza
                         //una mega funcion que chequee todo
@@ -233,8 +246,11 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                             pos_piezas.LiberarPieza(arrayPiezas[6]);
                             casillas_amenazadas.BuscarYdesamenazar_porPieza(cant_amenazasxCasillas.tablero, arrayPiezas[6], pos_piezas.tablero);
                             casillas_amenazadas.AmenazasMovimientoReina(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[6], true);
-                            if (casillas_amenazadas.casillas_no_amenazadas == 0)//si matriz amenazada completa que termine el while
+                            if (casillas_amenazadas.casillas_no_amenazadas == 0)
+                            {//si matriz amenazada completa que termine el while
+                                pos_piezas.ImprimirTablero();
                                 break;
+                            }
                         }
                         if (casillas_amenazadas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] == 9)
                         {
@@ -242,8 +258,10 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                             pos_piezas.LiberarPieza(arrayPiezas[7]);
                             casillas_amenazadas.BuscarYdesamenazar_porPieza(cant_amenazasxCasillas.tablero, arrayPiezas[7], pos_piezas.tablero);
                             casillas_amenazadas.AmenazasMovimientoRey(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[7], true);
-                            if (casillas_amenazadas.casillas_no_amenazadas == 0)//si matriz amenazada completa que termine el while
+                            if (casillas_amenazadas.casillas_no_amenazadas == 0) {// si matriz amenazada completa que termine el while
+                                pos_piezas.ImprimirTablero();
                                 break;
+                            }
                         }
                     }
                     for (int k = 0; k < 8; k++)
@@ -262,8 +280,11 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                     }
                     //fijarme si esta completo
                 }
-                if (casillas_amenazadas.casillas_no_amenazadas == 0)//si matriz amenazada completa que termine el while
+                if (casillas_amenazadas.casillas_no_amenazadas == 0)
+                {//si matriz amenazada completa que termine el while
+                    pos_piezas.ImprimirTablero();
                     break;
+                }
                 //HAGO NUEVOS MOVIMIENTOS DE PIEZAS
 
                 contador++;//si no llegamos a obtener un tablero despues de repetir proceso 3 veces-> empezamos de 0

@@ -18,7 +18,8 @@ namespace TP_labo2_Mendiburu_GeonasStunf
             partida.InicializarTableroAlfil();
             partida.arrayPiezas = CrearPiezas();
             partida.GenerarTableros();
-            //Application.EnableVisualStyles();
+            Console.ReadKey();
+           // Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
         }

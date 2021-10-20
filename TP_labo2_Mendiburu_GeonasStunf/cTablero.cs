@@ -62,6 +62,20 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                 }
             }
         }
-     
+        public void ImprimirTablero()
+        {
+            Console.WriteLine("Tablero\n");
+            for (int r = 0; r < 8; r++)
+            {
+                for (int c = 0; c < 8; c++)
+                {
+                    Console.Write(" " + tablero[r, c]);
+
+                }
+                Console.WriteLine();
+            }
+
+        }
+
     }
 }
