@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-enum ePieza { CABALLO1 = 2, CABALLO2, TORRE1, TORRE2, ALFIL1, ALFIL2, REINA, REY }
+ public enum e_Pieza { CABALLO1 = 2, CABALLO2, TORRE1, TORRE2, ALFIL1, ALFIL2, REINA, REY };
 
 namespace TP_labo2_Mendiburu_GeonasStunf
 {
@@ -12,7 +12,7 @@ namespace TP_labo2_Mendiburu_GeonasStunf
     {
         
         public cPosicion pos;
-        ePieza tipoPieza;
+        public e_Pieza tipoPieza;
 
     }
 }

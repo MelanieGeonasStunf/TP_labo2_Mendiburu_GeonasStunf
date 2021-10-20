@@ -23,7 +23,7 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                 //---------------------------------------------------------
                 //TORRE1
                 arrayPiezas[2].pos.EleccionAlAzar();
-                casillas_amenazadas.AmenazasMovimientoTorre(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[2].pos, true);
+                casillas_amenazadas.AmenazasMovimientoTorre(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[2], true);
                 //TORRE 2:
                 cPosicion aux = new cPosicion();
                 aux.EleccionAlAzar();
@@ -37,7 +37,7 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                 {
                     pos_piezas.tablero[aux.fila, aux.columna] = 5;//torre2
                                                                   //COMPLETO POSICIONES AMENAZADAS CON EL CABALLO DESDE POSICION PROPUESTA
-                    casillas_amenazadas.AmenazasMovimientoTorre(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[3].pos, true);
+                    casillas_amenazadas.AmenazasMovimientoTorre(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[3], true);
                 }
 
                 //ALFIL 1
@@ -47,7 +47,7 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                 }
                 pos_piezas.tablero[aux.fila, aux.columna] = 6;//alfil 1
                 arrayPiezas[4].pos = aux;
-                casillas_amenazadas.AmenazasMovimientoAlfil(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[4].pos, true);
+                casillas_amenazadas.AmenazasMovimientoAlfil(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[4], true);
 
                 //ALFIL 2
                 while (pos_piezas.tablero[aux.fila, aux.columna] != 0 && matriz_alfil.tablero[aux.fila, aux.columna] != 2)//condicion para ver si se puede mover el alfil{
@@ -56,7 +56,7 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                 }
                 pos_piezas.tablero[aux.fila, aux.columna] = 7;//alfil 2
                 arrayPiezas[5].pos = aux;
-                casillas_amenazadas.AmenazasMovimientoAlfil(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[5].pos, true);
+                casillas_amenazadas.AmenazasMovimientoAlfil(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[5], true);
 
                 //REINA
 
@@ -74,7 +74,7 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                 {
                     pos_piezas.tablero[aux.fila, aux.columna] = 8;//alfil 2
                     arrayPiezas[6].pos = aux;
-                    casillas_amenazadas.AmenazasMovimientoAlfil(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[6].pos, true);
+                    casillas_amenazadas.AmenazasMovimientoAlfil(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[6], true);
                 }
 
                 //busco primer posición vacia ->pongo caballo
@@ -92,7 +92,7 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                 //...
                 //COMPLETO MATRIZ cant_amenazas_casillas CON 1 EN LAS POSICIONES DONDE AMENAZA CABALLO
 
-                casillas_amenazadas.AmenazasMovimientoCaballos(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[0].pos, true);
+                casillas_amenazadas.AmenazasMovimientoCaballos(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[0], true);
                 //busco segunda->otro caballo
                 arrayPiezas[1].pos = pos_piezas.BuscarPosicionLibre();
                 if (arrayPiezas[1].pos == paux)
@@ -103,7 +103,7 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                 //COMPLETO POSICIONES AMENAZADAS CON EL CABALLO DESDE POSICION PROPUESTA
                 // ...
                 //COMPLETO MATRIZ cant_amenazas_casillas CON 1 EN LAS POSICIONES DONDE AMENAZA CABALLO
-                casillas_amenazadas.AmenazasMovimientoCaballos(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[1].pos, true);
+                casillas_amenazadas.AmenazasMovimientoCaballos(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[1], true);
                 //busco tercera->rey
                 //REY -> me fijo si no hay ninguna pieza o si esta el alfil -> puedo superponer
                 arrayPiezas[7].pos = pos_piezas.BuscarPosicionLibre(true);//chequemos que se almacena 
@@ -112,7 +112,7 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                     //throw "NO "
                 }
                 pos_piezas.tablero[arrayPiezas[7].pos.fila, arrayPiezas[7].pos.fila] = 9;
-                casillas_amenazadas.AmenazasMovimientoRey(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[7].pos, true);
+                casillas_amenazadas.AmenazasMovimientoRey(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[7], true);
 
                 //UNA VEZ QUE TENGO COMPLETA MATRICES
                 cPosicion pos_sin_Amenazas = new cPosicion();
@@ -172,7 +172,7 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                             pos_piezas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] = 3;
                             pos_piezas.LiberarPieza(arrayPiezas[1]);
                             casillas_amenazadas.BuscarYdesamenazar_porPieza(cant_amenazasxCasillas.tablero, arrayPiezas[1], pos_piezas.tablero);
-                            casillas_amenazadas.AmenazasMovimientoCaballos(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[1].pos, true);
+                            casillas_amenazadas.AmenazasMovimientoCaballos(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[1], true);
                         }
                         if (casillas_amenazadas.casillas_no_amenazadas == 0)//si matriz amenazada completa que termine el while
                             break;
@@ -182,7 +182,7 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                             pos_piezas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] = 4;
                             pos_piezas.LiberarPieza(arrayPiezas[2]);
                             casillas_amenazadas.BuscarYdesamenazar_porPieza(cant_amenazasxCasillas.tablero, arrayPiezas[2], pos_piezas.tablero);
-                            casillas_amenazadas.AmenazasMovimientoTorre(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[2].pos, true);
+                            casillas_amenazadas.AmenazasMovimientoTorre(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[2], true);
                             if (casillas_amenazadas.casillas_no_amenazadas == 0)//si matriz amenazada completa que termine el while
                                 break;
                         }
@@ -191,7 +191,7 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                                 pos_piezas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] = 7;
                                 pos_piezas.LiberarPieza(arrayPiezas[5]);
                                 casillas_amenazadas.BuscarYdesamenazar_porPieza(cant_amenazasxCasillas.tablero, arrayPiezas[5], pos_piezas.tablero);
-                                casillas_amenazadas.AmenazasMovimientoAlfil(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[5].pos, true);
+                                casillas_amenazadas.AmenazasMovimientoAlfil(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[5], true);
                                 if (casillas_amenazadas.casillas_no_amenazadas == 0)//si matriz amenazada completa que termine el while
                                     break;
                             }
@@ -201,35 +201,41 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                             pos_piezas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] = 6;
                             pos_piezas.LiberarPieza(arrayPiezas[4]);
                             casillas_amenazadas.BuscarYdesamenazar_porPieza(cant_amenazasxCasillas.tablero, arrayPiezas[4], pos_piezas.tablero);
-                            casillas_amenazadas.AmenazasMovimientoAlfil(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[4].pos, true);
+                            casillas_amenazadas.AmenazasMovimientoAlfil(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[4], true);
                             if (casillas_amenazadas.casillas_no_amenazadas == 0)//si matriz amenazada completa que termine el while
                                 break;
                         }
                         //falta vaciar las casillas que se liberan al mover la pieza
                         //una mega funcion que chequee todo
-                        si matriz_amenazada[fila_max_amenazas][columna_max_amenazas]== 8
-                                 matriz_piezas[fila_sin_amenaza][columna_sin_amenaza] = 8;
-                        BuscarYdesamenazar_porPieza(matriz_amenazada, cant_amenazas_casillas, fila, columna, pieza, matrizpiezas)
-                                  LiberarPieza(8, matriz_piezas);
-                        AmenazasMovimientoReina(matriz_amenazada,
-                         cant_amenazas_casillas, fila_sin_amenaza, columna_sin_amenaza, 8);
-                        si matriz_amenazada[fila_max_amenazas][columna_max_amenazas]== 9
-                                   matriz_piezas[fila_sin_amenaza][columna_sin_amenaza] = 9;
-                        BuscarYdesamenazar_porPieza(matriz_amenazada, cant_amenazas_casillas, fila, columna, pieza, matrizpiezas)
-                                  LiberarPieza(9, matriz_piezas);
-                        AmenazasMovimientoRey(matriz_amenazada,
-                         cant_amenazas_casillas, fila_sin_amenaza, columna_sin_amenaza, 9);
-                    }
-                    for (int i = 0; i < 8; i++)
-                    {
-                        for (j = 0; j < 8; j++)
+                        if (casillas_amenazadas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] == 8) {
+                            pos_piezas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] = 8;
+                            pos_piezas.LiberarPieza(arrayPiezas[6]);
+                            casillas_amenazadas.BuscarYdesamenazar_porPieza(cant_amenazasxCasillas.tablero, arrayPiezas[6], pos_piezas.tablero);
+                            casillas_amenazadas.AmenazasMovimientoReina(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[6], true);
+                            if (casillas_amenazadas.casillas_no_amenazadas == 0)//si matriz amenazada completa que termine el while
+                                break;
+                        }
+                        if(casillas_amenazadas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] == 9)
                         {
-                            if (matriz_amenazada[i][j] == 0)
+                            pos_piezas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] = 9;
+                            pos_piezas.LiberarPieza(arrayPiezas[7]);
+                            casillas_amenazadas.BuscarYdesamenazar_porPieza(cant_amenazasxCasillas.tablero, arrayPiezas[7], pos_piezas.tablero);
+                            casillas_amenazadas.AmenazasMovimientoRey(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[7], true);
+                            if (casillas_amenazadas.casillas_no_amenazadas == 0)//si matriz amenazada completa que termine el while
+                                break;
+                        }
+                    }
+                    for (int k= 0; k < 8; k++)
+                    {
+                        for (int l = 0; l < 8; l++)
+                        {
+                            if (casillas_amenazadas.tablero[k,l] == 0)
                             {
-                                fila_sin_amenaza = i;
-                                columna_sin_amenaza = j;//en un futuro capaz hacer un struct posición           que tenga columna y fila
+                                cPosicion posSinAmenaza = new cPosicion();
+                                posSinAmenaza.fila = k;
+                                posSinAmenaza.columna = l;//en un futuro capaz hacer un struct posición           que tenga columna y fila
                                                         //ya significa que no encontro una solucion
-                                cant_casillas_no_amenazadas++;
+                                casillas_amenazadas.casillas_no_amenazadas++;
                             }
                         }
                     }
@@ -237,15 +243,11 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                 }
                 if (casillas_amenazadas.casillas_no_amenazadas == 0)//si matriz amenazada completa que termine el while
                     break;
+                //HAGO NUEVOS MOVIMIENTOS DE PIEZAS
 
-            }
-            if (casillas_amenazadas.casillas_no_amenazadas == 0)//si matriz amenazada completa que termine el while
-                break;
-            //HAGO NUEVOS MOVIMIENTOS DE PIEZAS
-
-            contador++;//si no llegamos a obtener un tablero despues de repetir proceso 3 veces-> empezamos de 0
-        }//termina el while
-            
+                contador++;//si no llegamos a obtener un tablero despues de repetir proceso 3 veces-> empezamos de 0
+            }//termina el while
+        }
         cJuego() { 
             cant_tableros_a_generar = 0;
             cant_tab_generados = 0;

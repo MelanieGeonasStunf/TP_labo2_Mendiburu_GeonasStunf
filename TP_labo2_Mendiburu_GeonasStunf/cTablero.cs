@@ -11,7 +11,7 @@ namespace TP_labo2_Mendiburu_GeonasStunf
 {
     public class cTablero
     {
-        public int[,] tablero = new int[8, 8];
+        public e_Pieza[,] tablero = new e_Pieza[8, 8];
 
         //metodos:
         public cPosicion BuscarPosicionLibre(bool rey=false) {
