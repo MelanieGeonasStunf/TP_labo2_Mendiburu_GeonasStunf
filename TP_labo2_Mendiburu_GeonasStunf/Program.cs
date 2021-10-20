@@ -14,9 +14,13 @@ namespace TP_labo2_Mendiburu_GeonasStunf
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            cJuego partida = new cJuego();
+            partida.InicializarTableroAlfil();
+            partida.arrayPiezas = CrearPiezas();
+            partida.GenerarTableros();
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new Form1());
         }
         /*
         Creamos juego
@@ -27,8 +31,18 @@ namespace TP_labo2_Mendiburu_GeonasStunf
         hacer las fichas en una función
 
          */
+        static Pieza[] CrearPiezas()
+        {
+            Pieza[] piezas = new Pieza[8];
+            for (int i = 0; i < 8; i++)
+            {
+                piezas[i] = new Pieza((e_Pieza)i+2);
+            }
+            return piezas;
+        }
 
     }
+   
 }
 
 //

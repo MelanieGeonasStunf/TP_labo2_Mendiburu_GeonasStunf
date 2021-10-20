@@ -11,7 +11,7 @@ namespace TP_labo2_Mendiburu_GeonasStunf
 {
     public class cTablero
     {
-        public e_Pieza[,] tablero = new e_Pieza[8, 8];
+        public int[,] tablero = new int[8, 8];
 
         //metodos:
         public cPosicion BuscarPosicionLibre(bool rey=false) {
@@ -37,10 +37,21 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                     }
                 }
             }
-           // throw Exceptio
-           return pos;//seria -1, podemos tirar excepcion?
+            // throw Exceptio
+            throw new NullReferenceException("Error."); 
+
+          //  return pos;//seria -1, podemos tirar excepcion?
         }
-        public void LiberarPieza(Pieza pieza) { }
+        public void LiberarPieza(Pieza pieza) {
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    if ((int)pieza.tipoPieza == tablero[i,j])
+                        tablero[i,j] = 0;
+                }
+            }
+        }
         public cTablero()
         {
             for (int i = 0; i < tablero.GetLength(0); i++)

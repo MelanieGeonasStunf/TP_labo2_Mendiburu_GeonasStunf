@@ -15,9 +15,10 @@ namespace TP_labo2_Mendiburu_GeonasStunf
         Amenazas casillas_amenazadas;
         cTablero pos_piezas;
         Amenazas cant_amenazasxCasillas;
-        Pieza[] arrayPiezas;
+        public Pieza[] arrayPiezas;
 
-        public void GenerarTableros() {
+        public void GenerarTableros()
+        {
             while (cant_tab_generados < cant_tableros_a_generar)//-> necesito completar n tableros
             {
                 //---------------------------------------------------------
@@ -79,12 +80,20 @@ namespace TP_labo2_Mendiburu_GeonasStunf
 
                 //busco primer posición vacia ->pongo caballo
                 //va un try
-                arrayPiezas[0].pos = pos_piezas.BuscarPosicionLibre();
-                cPosicion paux = new cPosicion();//creo una posicion nueva que va a estar inicializada en -1
-                if (arrayPiezas[0].pos == paux)
+                try
                 {
-                    //throw "NO "
+                    arrayPiezas[0].pos = pos_piezas.BuscarPosicionLibre();
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    // MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                //cPosicion paux = new cPosicion();//creo una posicion nueva que va a estar inicializada en -1
+                //if (arrayPiezas[0].pos == paux)
+                //{
+                //    //throw "NO "
+                //}
                 pos_piezas.tablero[arrayPiezas[0].pos.fila, arrayPiezas[0].pos.fila] = 2;//caballo
                                                                                          //Lleno matriz con posiciones que amenazan
 
@@ -94,10 +103,14 @@ namespace TP_labo2_Mendiburu_GeonasStunf
 
                 casillas_amenazadas.AmenazasMovimientoCaballos(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[0], true);
                 //busco segunda->otro caballo
-                arrayPiezas[1].pos = pos_piezas.BuscarPosicionLibre();
-                if (arrayPiezas[1].pos == paux)
+                try
                 {
-                    //throw "NO "
+                    arrayPiezas[1].pos = pos_piezas.BuscarPosicionLibre();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    // MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 pos_piezas.tablero[arrayPiezas[1].pos.fila, arrayPiezas[1].pos.fila] = 3;//caballo2
                 //COMPLETO POSICIONES AMENAZADAS CON EL CABALLO DESDE POSICION PROPUESTA
@@ -106,10 +119,14 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                 casillas_amenazadas.AmenazasMovimientoCaballos(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[1], true);
                 //busco tercera->rey
                 //REY -> me fijo si no hay ninguna pieza o si esta el alfil -> puedo superponer
-                arrayPiezas[7].pos = pos_piezas.BuscarPosicionLibre(true);//chequemos que se almacena 
-                if (arrayPiezas[7].pos == paux)
+                try
                 {
-                    //throw "NO "
+                    arrayPiezas[7].pos = pos_piezas.BuscarPosicionLibre();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    // MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 pos_piezas.tablero[arrayPiezas[7].pos.fila, arrayPiezas[7].pos.fila] = 9;
                 casillas_amenazadas.AmenazasMovimientoRey(cant_amenazasxCasillas.tablero, pos_piezas.tablero, arrayPiezas[7], true);
@@ -149,9 +166,9 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                 {
                     for (int j = 0; j < 8; j++)
                     {
-                        if (cant_amenazasxCasillas.tablero[i, j] > cant_amenazasxCasillas.max_amenazas)
+                        if ((int)cant_amenazasxCasillas.tablero[i, j] > cant_amenazasxCasillas.max_amenazas)
                         {
-                            cant_amenazasxCasillas.max_amenazas = cant_amenazasxCasillas.tablero[i, j];
+                            cant_amenazasxCasillas.max_amenazas = (int)cant_amenazasxCasillas.tablero[i, j];
                             cant_amenazasxCasillas.pos_max_amenazas.fila = i;
                             cant_amenazasxCasillas.pos_max_amenazas.columna = j;
                         }
@@ -178,7 +195,8 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                             break;
                         //falta vaciar las casillas que se liberan al mover la pieza
                         //una mega funcion que chequee todo
-                        if (casillas_amenazadas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] == 4) {
+                        if (casillas_amenazadas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] == 4)
+                        {
                             pos_piezas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] = 4;
                             pos_piezas.LiberarPieza(arrayPiezas[2]);
                             casillas_amenazadas.BuscarYdesamenazar_porPieza(cant_amenazasxCasillas.tablero, arrayPiezas[2], pos_piezas.tablero);
@@ -186,8 +204,10 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                             if (casillas_amenazadas.casillas_no_amenazadas == 0)//si matriz amenazada completa que termine el while
                                 break;
                         }
-                        if (casillas_amenazadas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] == 7) {
-                            if (casillas_amenazadas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] == 7) {
+                        if (casillas_amenazadas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] == 7)
+                        {
+                            if (casillas_amenazadas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] == 7)
+                            {
                                 pos_piezas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] = 7;
                                 pos_piezas.LiberarPieza(arrayPiezas[5]);
                                 casillas_amenazadas.BuscarYdesamenazar_porPieza(cant_amenazasxCasillas.tablero, arrayPiezas[5], pos_piezas.tablero);
@@ -207,7 +227,8 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                         }
                         //falta vaciar las casillas que se liberan al mover la pieza
                         //una mega funcion que chequee todo
-                        if (casillas_amenazadas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] == 8) {
+                        if ((int)casillas_amenazadas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] == 8)
+                        {
                             pos_piezas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] = 8;
                             pos_piezas.LiberarPieza(arrayPiezas[6]);
                             casillas_amenazadas.BuscarYdesamenazar_porPieza(cant_amenazasxCasillas.tablero, arrayPiezas[6], pos_piezas.tablero);
@@ -215,7 +236,7 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                             if (casillas_amenazadas.casillas_no_amenazadas == 0)//si matriz amenazada completa que termine el while
                                 break;
                         }
-                        if(casillas_amenazadas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] == 9)
+                        if (casillas_amenazadas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] == 9)
                         {
                             pos_piezas.tablero[cant_amenazasxCasillas.pos_max_amenazas.fila, cant_amenazasxCasillas.pos_max_amenazas.columna] = 9;
                             pos_piezas.LiberarPieza(arrayPiezas[7]);
@@ -225,16 +246,16 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                                 break;
                         }
                     }
-                    for (int k= 0; k < 8; k++)
+                    for (int k = 0; k < 8; k++)
                     {
                         for (int l = 0; l < 8; l++)
                         {
-                            if (casillas_amenazadas.tablero[k,l] == 0)
+                            if (casillas_amenazadas.tablero[k, l] == 0)
                             {
                                 cPosicion posSinAmenaza = new cPosicion();
                                 posSinAmenaza.fila = k;
                                 posSinAmenaza.columna = l;//en un futuro capaz hacer un struct posición           que tenga columna y fila
-                                                        //ya significa que no encontro una solucion
+                                                          //ya significa que no encontro una solucion
                                 casillas_amenazadas.casillas_no_amenazadas++;
                             }
                         }
@@ -248,7 +269,8 @@ namespace TP_labo2_Mendiburu_GeonasStunf
                 contador++;//si no llegamos a obtener un tablero despues de repetir proceso 3 veces-> empezamos de 0
             }//termina el while
         }
-        cJuego() { 
+       public cJuego()
+        {
             cant_tableros_a_generar = 0;
             cant_tab_generados = 0;
             matriz_alfil = new cTablero();
@@ -256,15 +278,16 @@ namespace TP_labo2_Mendiburu_GeonasStunf
             pos_piezas = new cTablero();
             cant_amenazasxCasillas = new Amenazas();
             arrayPiezas = new Pieza[8];//yo recibiria una por parametro
-       
+
         }
-        public void InicializarTableroAlfil() {
+        public void InicializarTableroAlfil()
+        {
             int cont = 0;
-            for(int i=0;i<matriz_alfil.tablero.GetLength(0) ;i++)
+            for (int i = 0; i < matriz_alfil.tablero.GetLength(0); i++)
             {
-                for(int j=0;j<matriz_alfil.tablero.GetLength(1) ;j++)
-                {           
-                    if(cont%2==0 || cont==0)
+                for (int j = 0; j < matriz_alfil.tablero.GetLength(1); j++)
+                {
+                    if (cont % 2 == 0 || cont == 0)
                     {
                         matriz_alfil.tablero[i, j] = 1;
                     }

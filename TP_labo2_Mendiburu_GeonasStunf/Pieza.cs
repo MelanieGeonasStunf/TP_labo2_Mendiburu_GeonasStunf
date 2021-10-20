@@ -13,6 +13,11 @@ namespace TP_labo2_Mendiburu_GeonasStunf
         
         public cPosicion pos;
         public e_Pieza tipoPieza;
+        public Pieza(e_Pieza tipo_pieza)
+        {
+            pos = new cPosicion();
+            tipoPieza = tipo_pieza;
+        }
 
     }
 }
